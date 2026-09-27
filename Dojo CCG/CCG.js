@@ -45,9 +45,26 @@ class Effect extends Card {
     }
 }
 
-const ninja = new Unit("Red Belt Ninja", 2, 7, 8);
+const ninja = new Unit("White Belt Ninja", 2, 7, 8);
 const ninja2 = new Unit("Green Belt Ninja", 3, 6, 7);
-const hardAlgorithm = new Effect("Hard Algorithm", 2, "Increase target's resilience by 3", "resilience", 3);
+const algorithm = new Effect("Algorithm", 2, "Increase target's resilience by 3", "resilience", 3);
 ninja.attacks(ninja2);
-hardAlgorithm.play(ninja);
+algorithm.play(ninja);
 console.log(ninja);
+
+// this for It's Time to Duel assignment
+const redNinja = new Unit("Red Belt Ninja", 3, 3, 4);
+const blackNinja = new Unit("Black Belt Ninja", 4, 5, 4);
+
+const hardAlgorithm = new Effect("Hard Algorithm", 2, "increase target's resilience by 3", "resilience", 3);
+const unhandledPromise = new Effect("Unhandled Promise Rejection", 1, "reduce target's resilience by 2", "resilience", -2);
+const pairProgramming = new Effect("Pair Programming", 3, "increase target's power by 2", "power", 2);
+
+// play scenario
+hardAlgorithm.play(redNinja);
+unhandledPromise.play(redNinja);
+pairProgramming.play(redNinja);
+redNinja.attacks(blackNinja);
+
+console.log(redNinja);
+console.log(blackNinja);
